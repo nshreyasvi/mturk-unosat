@@ -3,7 +3,7 @@ This project can be used in order to launch a mechanical turk web instance along
 The project offers a front end wherein a polygon can be drawn on top of a shelter image and a python back end which is intergrated to Amazon Mechanical Turk using AWS Key and Authentication Key.
 Presently, this project has been tested on ubuntu 16.06 and must be compatible with windows OS.
 
-# Steps to set up Mechanical Turk:
+## Steps to set up Mechanical Turk:
 We recommend conducting this procedure inside a Python Virtual Environment. Please create and activate one with the python package virtualenv or conda if you are using Anaconda.
 
 1) Clone this repository and install all dependencies. For a quick way to do this, try the following:
@@ -43,7 +43,7 @@ Go online to a link posted by the begin script when it is publishing hits. It wi
 7) After setting up the Firebase account run the following program
    `python ASCRIPT_begin.py`
 
-# Downloading Data and Approving/Rejecting HITs
+## Downloading Data and Approving/Rejecting HITs
 1) Run ASCRIPT_finish.py after setting the appropriate variables at the start of the script
 
 2) The annotations for each image submitted to you will be stored in JSON Format (1 line per image) inside all_submitted.txt, a text file inside your specific hit batch folder. Learn more about the JSON format here
