@@ -1,4 +1,4 @@
-# mturk-unosat
+# Implementation of Mechanical Turk for Human Intelligence based Shelter Polygon Drawing
 This project can be used in order to launch a mechanical turk web instance along with the URL for the same. 
 The project offers a front end wherein a polygon can be drawn on top of a shelter image and a python back end which is intergrated to Amazon Mechanical Turk using AWS Key and Authentication Key.
 Presently, this project has been tested on ubuntu 16.06 and must be compatible with windows OS.
