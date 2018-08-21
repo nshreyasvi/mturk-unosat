@@ -1,7 +1,4 @@
 """
-Author: Trishul Nagenalli (tn74@duke.edu)
-Organization: Duke Energy Data Analytics Lab
-
 Description:
 Use this script to help speed the installation process on your computer. The primary purpose of this program is to get 
 your firebase site up and running. To do so, you must have installed the Firebase CLI and have created a firebase 
@@ -25,9 +22,7 @@ firbaseProjectID				- 	The id of your firebase project that will be used to comm
 """
 #====================== Set Variables below
 firebaseProjectID = 'mturk-satellite'
-#====================== 
-
-
+#======================
 
 from subprocess import call
 import subprocess

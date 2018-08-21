@@ -1,7 +1,4 @@
 """
-Author: Trishul Nagenalli (tn74@duke.edu)
-Organization: Duke Energy Data Analytics Lab
-
 Description:
 Use this script to post process an image that was cut into several pieces before being placed online (like in the case you wanted to annotate a large satellite image for example).
 

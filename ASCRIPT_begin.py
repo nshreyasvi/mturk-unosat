@@ -29,13 +29,11 @@ annotations				-	Array of things you would like the Turk Users to annotate in ea
 
 Set the variables below before you run the script
 """
-#https://github.com/tn74/MTurkAnnotationTool/blob/master/jsonReader.py#L18
-
 #=====================================
 folderToPublish = 'muna_camp' # Must be name of image that was cut if using LargeImage pre and post processing scripts
 user = 'nshreyasvi' # Name of user inside config file
-serverType = 'developer'				
-imagesPerPerson = 1 
+serverType = 'developer'
+imagesPerPerson = 1
 annotations = ['building']
 #=====================================
 
@@ -66,6 +64,3 @@ print('Site deployed')
 if not (os.path.exists(topLevelDir)):
 	os.mkdir(topLevelDir)
 publish(folderToPublish, imagesPerPerson, serverType, annotations, user) # Create and publish hits to Amazonon
-
-
-
