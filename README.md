@@ -1,4 +1,6 @@
 # Mechanical Turk Shelter Counting UNOSAT
+
+## Introduction
 This project can be used in order to launch a mechanical turk web instance along with the URL for the same. 
 The project offers a front end wherein a polygon can be drawn on top of a shelter image and a python back end which is intergrated to Amazon Mechanical Turk using AWS Key and Authentication Key.
 Presently, this project has been tested on ubuntu 16.06 and must be compatible with windows OS.
@@ -6,14 +8,12 @@ Presently, this project has been tested on ubuntu 16.06 and must be compatible w
 ## Steps to set up Mechanical Turk:
 We recommend conducting this procedure inside a Python Virtual Environment. Please create and activate one with the python package virtualenv or conda if you are using Anaconda.
 
-1) Clone this repository and install all dependencies. For a quick way to do this, try the following:
-`$ pip install -r requirements.txt`
+1) Install all dependencies `pip install boto==2.46.1 boto3==1.4.4 botocore==1.5.88 matplotlib==2.0.2 numpy==1.12.1 numpydoc==0.6.0 Pillow==4.1.1`
 2) Get the Site deployed on Firebase
- Make a Google Account if you do not have one
-- Install Firebase CLI (See Link). Complete at least through firebase login
-- Login to Firebase Console
-- Create a Firebase Project
-- Open terminal and move into the MTurkAnnotationTool/toWeb directory
+- Install firebase using npm `npm install -g firebase-tools`
+- Login to Firebase Console `firebase login`
+- Create a Firebase Project by going to the firebase website. 
+- Open terminal and move into the `/toWeb` directory
 - Run firebase list in terminal and see the project-id for the project that you just created
 - Open the script ASCRIPT_INSTALL.py
 - Set the firebaseProjectID equal to your project-id
@@ -65,7 +65,7 @@ Go online to a link posted by the begin script when it is publishing hits. It wi
 16) The JSONS are stored in `condensed_accepted.txt`
 17) The visual representations are stored in acceptedCondensedImages
 18) Will begin populating data folder with confidence maps for each image and annotated object using only accepted data
-Inside data, a folder will be created for each iamge annotated and it will be named the same as the image without the file extension.
+Inside data, a folder will be created for each image annotated and it will be named the same as the image without the file extension.
 19) Inside the image's folder will be a raw and normalized confidence map for each object annotated
 20) The raw map contains, at every pixel, the number of people who thought this was part of a feature
 21) The normalized map contains, at every point, the relative confidence of a point being part of a feature with the highest relative confidence having a value of 255, visualized as white, and the lowest having 0, visualized as black. Note that this is a relative confidence. An image that has a maximum of two people annotating any given point as a feature will show 2 as 255. Another image that has a max of 20 people annotating any given point will show 20 as 255. The normalized map is meant as an easy visualization. For data processing purposes, we recommend using the raw map.
