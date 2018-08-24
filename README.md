@@ -64,6 +64,8 @@ The project offers a customizable front end wherein a polygon can be drawn on to
 3) The annotations for each image submitted to you will be stored in JSON Format (1 line per image) inside `all_submitted.txt`, a text file inside your specific hit batch folder. Learn more about the JSON format here
 
 4) The JSON for the condensed images will also be stored in `condensed_all_submitted.txt`
+The format of .json file is as follows:
+`{"assignmentID": "33SA9F9TRY0RTFNCJH46WGAOSCCWES", "objs": [{"data": [[[11, 1, 11, 16]], [[32, 18, 12, 23]]], "type": "polygon", "name": "building"}], "annotations": ["building"], "fileName": "muna_camp/Muna_clipped338.JPG"}`
 
 5) A condensed image combines the annotations of everyone who annotated the same image into one line of JSON. For example, if three people annotated powerplants on top of an image independently, a condensed image would have all three polygons in the same line of JSON
 6) All condensed JSON is stored in `condensed_all_submitted.txt`
