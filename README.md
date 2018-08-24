@@ -7,9 +7,10 @@
 **_Student: Shreyasvi Natraj_**
 
 ## Introduction
-This project can be used in order to launch a mechanical turk web instance along with the URL for the same. 
-The project offers a front end wherein a polygon can be drawn on top of a shelter image and a python back end which is intergrated to Amazon Mechanical Turk using AWS Key and Authentication Key.
-Presently, this project has been tested on ubuntu 16.06 and must be compatible with windows 10.
+This project can be used in order to launch a mechanical turk web instance externally.
+The project offers a customizable front end wherein a polygon can be drawn on top of a shelter image and a python back end which is intergrated to Amazon Mechanical Turk for deploying it in the form of a Human Intelligence Task on Amazon MTurk website. This project gives the ability generate rapid polygon data over several different refugee shelter satellite images in order to provide accurate figures regarding the amount of resources which is required in those refugee camps.
+
+**Presently, this project has been tested on ubuntu 16.06 and must be compatible with windows 10.**
 
 ## Steps to set up Mechanical Turk:
 
