@@ -25,6 +25,7 @@ The project offers a customizable front end wherein a polygon can be drawn on to
 - Run firebase list in terminal and see the project-id for the project that you just created
 - Open the script ASCRIPT_INSTALL.py
 - Copy and paste the firebaseProjectID inside `ASCRIPT_INSTALL.py` and `config.ini` under the right field in the file once you have hosted the page on firebase.
+- Make a folder in `/toWeb/public/images/<your folder name>` and store all the satellite images here
 - Run the `sudo python ASCRIPT_INSTALL.py`
 - Set Up your MTurk Requester Account following [these instructions](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkGettingStartedGuide/SetUp.html#setup-aws-account). Make sure you complete all steps through Step 5 (setting up the developer sandbox). When making an IAM user, save your AWS Access and Secret Access keys somewhere safe
 - Place your preferred username (doesn't matter what it is so long as you are consistent in your code), AWS Access, and AWS Secret Access Keys inside the `config.ini` For example, if you wanted to create access for a user named 'Student' with AWS Key 'ABCD' and AWS Secret Access Key '1234'
@@ -43,7 +44,7 @@ The project offers a customizable front end wherein a polygon can be drawn on to
 
 | to change | value |
 | --------------- | ----------- |
-| folderToPublish | put satellite images here for upload|
+| folderToPublish | name of `<your folder name`>|
 | user | add same username as config name |
 | serverType | set 'production' for live event or developer for sandbox mode |
 | imagesPerPerson | number of images to be classified as one HIT |
