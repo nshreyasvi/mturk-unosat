@@ -70,7 +70,7 @@ The format of .json file is as follows:
 5) A condensed image combines the annotations of everyone who annotated the same image into one line of JSON. For example, if three people annotated powerplants on top of an image independently, a condensed image would have all three polygons in the same line of JSON
 6) All condensed JSON is stored in `condensed_all_submitted.txt`
 7) A visual represntation of each condensed image, where each annotated feature is drawn, is stored in `allSubmittedCondensedImages`. The image for the previously mentioned .json file can be represented with the following image:
-[[https://github.com/nshreyasvi/mturk-unosat/blob/master/Muna_clipped32ANN.jpg|alt=outputimage]]
+![output_image](https://github.com/nshreyasvi/mturk-unosat/blob/master/Muna_clipped32ANN.jpg)
 
 **5) Accepting/Rejecting HITs:**
 - After running `sudo python ASCRIPT_finish.py`:
