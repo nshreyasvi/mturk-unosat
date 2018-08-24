@@ -3,13 +3,13 @@
 ## Introduction
 This project can be used in order to launch a mechanical turk web instance along with the URL for the same. 
 The project offers a front end wherein a polygon can be drawn on top of a shelter image and a python back end which is intergrated to Amazon Mechanical Turk using AWS Key and Authentication Key.
-Presently, this project has been tested on ubuntu 16.06 and must be compatible with windows OS.
+Presently, this project has been tested on ubuntu 16.06 and must be compatible with windows 10.
 
 ## Steps to set up Mechanical Turk:
-We recommend conducting this procedure inside a Python Virtual Environment. Please create and activate one with the python package virtualenv or conda if you are using Anaconda.
 
 **1) Install all dependencies** 
 `pip install boto==2.46.1 boto3==1.4.4 botocore==1.5.88 matplotlib==2.0.2 numpy==1.12.1 numpydoc==0.6.0 Pillow==4.1.1`
+
 **2) Get the Site deployed on Firebase and set up Amazon MTurk**
 - Install firebase using npm `npm install -g firebase-tools`
 - Login to Firebase Console `firebase login`
@@ -32,7 +32,7 @@ We recommend conducting this procedure inside a Python Virtual Environment. Plea
 >awssakey = 1234
 
 **3) Launching MTurk Campaign**
-- Open the `ASCRIPT_begin.py` file and check the values for the following
+- Open the `ASCRIPT_begin.py` and `ASCRIPT_finish.py` file and change the values for the according to the requirement
 
 | to change | value |
 | --------------- | ----------- |
@@ -40,6 +40,7 @@ We recommend conducting this procedure inside a Python Virtual Environment. Plea
 | user | add same username as config name |
 | serverType | set 'production' for live event or developer for sandbox mode |
 | imagesPerPerson | number of images to be classified as one HIT |
+| hitBatch | folder in which results will be stored |
 
 - The front end of the website can be changed by editing the HTML and Javascript code inside the `toWeb` folder
 - When everything is done, run:
@@ -47,37 +48,33 @@ We recommend conducting this procedure inside a Python Virtual Environment. Plea
 - Go online to a link posted by the begin script when it is publishing hits. It will take you to the developer sandbox where you can see exactly what your HIT would look like to an actual user without having to pay them for it. Do a couple hits so you can test with data.
 
 **4) Getting Results from MTurk** 
-- During the final few 
-Open `ASCRIPT_finish.py` and change the variable hitBatch to the name of the folder inside hitBatches
-5) Run `ASCRIPT_finish.py` and see some statistics about your HIT.
+- When the campaign time ends, run 
+1) Run `ASCRIPT_finish.py` and see some statistics about your HIT.
 
-6) If no crashes occur, you have finished! Explore the images stored inside the data folder
-7) After setting up the Firebase account run the following program
-   `python ASCRIPT_begin.py`
+2) If no crashes occur, you have finished! Explore the images stored inside the data folder
 
-## Downloading Data and Approving/Rejecting HITs
-1) Run ASCRIPT_finish.py after setting the appropriate variables at the start of the script
+3) The annotations for each image submitted to you will be stored in JSON Format (1 line per image) inside `all_submitted.txt`, a text file inside your specific hit batch folder. Learn more about the JSON format here
 
-2) The annotations for each image submitted to you will be stored in JSON Format (1 line per image) inside all_submitted.txt, a text file inside your specific hit batch folder. Learn more about the JSON format here
+4) The JSON for the condensed images will also be stored in `condensed_all_submitted.txt`
 
-3) The JSON for the condensed images will also be stored in condensed_all_submitted.txt
+5) A condensed image combines the annotations of everyone who annotated the same image into one line of JSON. For example, if three people annotated powerplants on top of an image independently, a condensed image would have all three polygons in the same line of JSON
+6) All condensed JSON is stored in `condensed_all_submitted.txt`
+7) A visual represntation of each condensed image, where each annotated feature is drawn, is stored in `allSubmittedCondensedImages`.
 
-4) A condensed image combines the annotations of everyone who annotated the same image into one line of JSON. For example, if three people annotated powerplants on top of an image independently, a condensed image would have all three polygons in the same line of JSON
-5) All condensed JSON is stored in condensed_all_submitted.txt
-6) A visual represntation of each condensed image, where each annotated feature is drawn, is stored in allSubmittedCondensedImages.
-7) Run `ASCRIPT_hit_checker.py` script with the proper variables and accept or reject annotations. The hitcheker:
-8) Reads through each line of all_submitted.txt
-9) Generates an image of the annotations given the JSON data
-10) Displays the image in a window and asks you to accept or reject the annotation
-11) Accepts all assignments containing an image that you accepted and rejects those that contained no image that you accepted once you close out the hit_checker GUI. --folderNote: The only way to reject an assignment and not provide that Turker compensation is if you reject every image that they annotated. If you offered them 10 images to annotate and you rejected 9 of them, you will still pay them the full compensation for the 1 image you accepted.
-12) Writes the line of JSON for each accepted annotation into accepted.txt
-13) Rerun `ASCRIPT_finish.py`
-14) The program will download new unreviewed data for hit checker to process
-15) Creates condensed images using only accepted data.
-16) The JSONS are stored in `condensed_accepted.txt`
-17) The visual representations are stored in acceptedCondensedImages
-18) Will begin populating data folder with confidence maps for each image and annotated object using only accepted data
+**5) Accepting/Rejecting HITs:**
+1) Run `sudo python ASCRIPT_hit_checker.py` script with the proper variables and accept or reject annotations. The hitcheker:
+2) Reads through each line of all_submitted.txt
+3) Generates an image of the annotations given the JSON data
+4) Displays the image in a window and asks you to accept or reject the annotation
+5) Accepts all assignments containing an image that you accepted and rejects those that contained no image that you accepted once you close out the hit_checker GUI. --folderNote: The only way to reject an assignment and not provide that Turker compensation is if you reject every image that they annotated. If you offered them 10 images to annotate and you rejected 9 of them, you will still pay them the full compensation for the 1 image you accepted.
+5) Writes the line of JSON for each accepted annotation into accepted.txt
+6) Rerun `sudo python ASCRIPT_finish.py`
+7) The program will download new unreviewed data for hit checker to process
+8) Creates condensed images using only accepted data.
+9) The JSONS are stored in `condensed_accepted.txt`
+10) The visual representations are stored in acceptedCondensedImages
+11) Will begin populating data folder with confidence maps for each image and annotated object using only accepted data
 Inside data, a folder will be created for each image annotated and it will be named the same as the image without the file extension.
-19) Inside the image's folder will be a raw and normalized confidence map for each object annotated
-20) The raw map contains, at every pixel, the number of people who thought this was part of a feature
-21) The normalized map contains, at every point, the relative confidence of a point being part of a feature with the highest relative confidence having a value of 255, visualized as white, and the lowest having 0, visualized as black. Note that this is a relative confidence. An image that has a maximum of two people annotating any given point as a feature will show 2 as 255. Another image that has a max of 20 people annotating any given point will show 20 as 255. The normalized map is meant as an easy visualization. For data processing purposes, we recommend using the raw map.
+12) Inside the image's folder will be a raw and normalized confidence map for each object annotated
+13) The raw map contains, at every pixel, the number of people who thought this was part of a feature
+14) The normalized map contains, at every point, the relative confidence of a point being part of a feature with the highest relative confidence having a value of 255, visualized as white, and the lowest having 0, visualized as black. Note that this is a relative confidence. An image that has a maximum of two people annotating any given point as a feature will show 2 as 255. Another image that has a max of 20 people annotating any given point will show 20 as 255. The normalized map is meant as an easy visualization. For data processing purposes, we recommend using the raw map.
