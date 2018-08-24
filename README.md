@@ -71,7 +71,7 @@ The format of .json file is as follows:
 6) All condensed JSON is stored in `condensed_all_submitted.txt`
 7) A visual represntation of each condensed image, where each annotated feature is drawn, is stored in `allSubmittedCondensedImages`. The image for the previously mentioned .json file can be represented with the following image:
 
-<img align="center" width="100" height="100" src="https://github.com/nshreyasvi/mturk-unosat/blob/master/Muna_clipped32ANN.jpg">
+<img align="center" src="https://github.com/nshreyasvi/mturk-unosat/blob/master/Muna_clipped32ANN.jpg">
 
 **5) Accepting/Rejecting HITs:**
 - After running `sudo python ASCRIPT_finish.py`:
