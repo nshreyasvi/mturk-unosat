@@ -22,7 +22,7 @@ The project offers a customizable front end wherein a polygon can be drawn on to
 - Login to Firebase Console `firebase login`
 - Create a Firebase Project by going to the firebase website. 
 - Open terminal and move into the `/toWeb` directory
-- Run firebase list in terminal and see the project-id for the project that you just created
+- Run `firebase list` in terminal and see the project-id for the project that you just created
 - Open the script ASCRIPT_INSTALL.py
 - Copy and paste the firebaseProjectID inside `ASCRIPT_INSTALL.py` and `config.ini` under the right field in the file once you have hosted the page on firebase.
 - Make a folder in `/toWeb/public/images/<your folder name>` and store all the satellite images here
