@@ -18,7 +18,7 @@ The project offers a customizable front end wherein a polygon can be drawn on to
 `pip install boto==2.46.1 boto3==1.4.4 botocore==1.5.88 matplotlib==2.0.2 numpy==1.12.1 numpydoc==0.6.0 Pillow==4.1.1`
 
 **2) Get the Site deployed on Firebase and set up Amazon MTurk**
-- Install firebase using npm `npm install -g firebase-tools`
+- Install firebase using `npm install -g firebase-tools`
 - Login to Firebase Console `firebase login`
 - Create a Firebase Project by going to the firebase website. 
 - Open terminal and move into the `/toWeb` directory
