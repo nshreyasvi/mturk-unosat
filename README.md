@@ -19,7 +19,7 @@ Presently, this project has been tested on ubuntu 16.06 and must be compatible w
 - Open the script ASCRIPT_INSTALL.py
 - Copy and paste the firebaseProjectID inside `ASCRIPT_INSTALL.py` and `config.ini` under the right field in the file once you have hosted the page on firebase.
 - Run the `sudo python ASCRIPT_INSTALL.py`
-- Set Up your MTurk Requester Account following[these instructions](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkGettingStartedGuide/SetUp.html#setup-aws-account). Make sure you complete all steps through Step 5 (setting up the developer sandbox). When making an IAM user, save your AWS Access and Secret Access keys somewhere safe
+- Set Up your MTurk Requester Account following [these instructions](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkGettingStartedGuide/SetUp.html#setup-aws-account). Make sure you complete all steps through Step 5 (setting up the developer sandbox). When making an IAM user, save your AWS Access and Secret Access keys somewhere safe
 - Place your preferred username (doesn't matter what it is so long as you are consistent in your code), AWS Access, and AWS Secret Access Keys inside the `config.ini` For example, if you wanted to create access for a user named 'Student' with AWS Key 'ABCD' and AWS Secret Access Key '1234'
 
 >[User name]
@@ -62,12 +62,13 @@ Presently, this project has been tested on ubuntu 16.06 and must be compatible w
 7) A visual represntation of each condensed image, where each annotated feature is drawn, is stored in `allSubmittedCondensedImages`.
 
 **5) Accepting/Rejecting HITs:**
+- After running `sudo python ASCRIPT_finish.py`:
 1) Run `sudo python ASCRIPT_hit_checker.py` script with the proper variables and accept or reject annotations. The hitcheker:
-2) Reads through each line of all_submitted.txt
+2) Reads through each line of `all_submitted.txt`
 3) Generates an image of the annotations given the JSON data
 4) Displays the image in a window and asks you to accept or reject the annotation
 5) Accepts all assignments containing an image that you accepted and rejects those that contained no image that you accepted once you close out the hit_checker GUI. --folderNote: The only way to reject an assignment and not provide that Turker compensation is if you reject every image that they annotated. If you offered them 10 images to annotate and you rejected 9 of them, you will still pay them the full compensation for the 1 image you accepted.
-5) Writes the line of JSON for each accepted annotation into accepted.txt
+5) Writes the line of JSON for each accepted annotation into `accepted.txt`
 6) Rerun `sudo python ASCRIPT_finish.py`
 7) The program will download new unreviewed data for hit checker to process
 8) Creates condensed images using only accepted data.
