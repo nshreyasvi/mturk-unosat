@@ -1,7 +1,9 @@
 # Mechanical Turk Annotation Tool for Satellite Imagery based Shelter Counting
 
 **_Organization: UNOSAT (CERN Openlab 2018)_**
+
 **_Supervisors: Lars Bromley, François Grey, Sofia Vallecorsa_**
+
 **_Student: Shreyasvi Natraj_**
 
 ## Introduction
